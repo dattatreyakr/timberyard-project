@@ -1,7 +1,7 @@
 # for turning on the server
-cd myenv
-cd Scripts 
-activate.bat
+cd myenv <br>
+cd Scripts <br>
+activate.bat<br>
 
 # come back to root directory i.e timber and run the command
 python manage.py runserver 
