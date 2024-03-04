@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'app1/profile.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ request.user.username }}</title>
+</head>
+<body>
+    <h3>
+        {{ request.user.username }}
+    </h3>
+    <form action="{% url 'profile' %}" method="post">
+        {% csrf_token %}
+        <div class="btns">
+            <ul>
+                <li><button name="return_home" type="submit" class="rhome">Home</button></li>
+                <li><button name="LOgout" type="submit" class="Logout">Logout</button></li>
+            </ul>
+        </div>
+        
+        <hr>
+        <h2>OrderDetails</h2>
+        <table align="center" cellspacing=30px cellpadding=10px>
+            <tr>
+                <th>PRODUCT</th>
+                <th>QUANTITY</th>
+                <th>TOTAL</th>
+                <th>DATE</th>
+                <th>ACTION</th>
+            </tr>
+            {% for item in order %}
+            <form action="{% url 'profile' %}" method="post">
+                {% csrf_token %}
+             <TR>
+                 <td>{{ item.product }}</td>
+                 <td>{{ item.quantiy }}</td>
+                 <td>{{ item.total_amount }}</td>
+                <td>{{ item.date }}</td>
+                <input type="hidden" name="idofproduct" value="{{ item.id }}">
+                <td> <button value="cancels" name="cancels" type="submit">Cancel Order</button> </td>
+             </TR>
+            </form>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</html>

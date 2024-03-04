@@ -1,0 +1,46 @@
+{% load static %}
+<html>
+
+<head>
+	<link rel="stylesheet" href="{% static 'app1/logincss.css' %}" />
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</head>
+
+<div id="background1">
+	<div class="signu">
+		<h1>Sign Up</h1>
+
+		<form enctype="multipart/form-data" method="post" action="{% url 'sign' %}">
+			{% csrf_token %}
+			<!-- <div class="fields1" style="display: flex;">
+				
+			</div>
+			<br /> -->
+			<div class="fields">
+				<div class="email">
+					<i class="fa-regular fa-user"></i>
+					<input type="email" name="email" value="" placeholder="E-mail" required />
+				</div>
+				<div class="email">
+					<i class="fa-regular fa-lock"></i>
+					<input type="password" name="password" value="" placeholder="Password" minlength="8" maxlength="16"
+						required />
+				</div>
+				<div class="email">
+					<i class="fa-regular fa-lock"></i>
+					<input type="password" name="confirm_password" value="" placeholder="Confirm Password" required />
+				</div>
+
+				<h5>* I agree to the
+					terms and conditions and privacy policy</h5>
+				<button name="signup" type="submit" placeholder="signup" class="signup-button">SignUp</button> <br>
+		</form>
+		<div class="link">
+			Already have account? <a href="{% url 'log' %}">Login Now</a>
+		</div>
+
+	</div>
+</div>
+</body>
+
+</html>

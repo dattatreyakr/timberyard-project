@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+	<head>
+		<link rel="stylesheet" href="{% static 'app1/logincss.css' %}" />
+		<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	</head>
+
+<body>
+<div id="background1">
+	<div class="login">
+		<h1>TIMBERYARD</h1>
+		<div>
+			<img src="{% static 'app1/images/Wlogo.png' %}" style="text-align: center;" />
+		</div>
+		<form enctype="multipart/form-data" method="post" action="{% url 'log' %}">
+			{% csrf_token %}
+			<div class="fields">
+				<div class="email">
+						<i class="fa-regular fa-user"></i>
+						<input type="email" id="email" name="email" class="e-input" value="" placeholder=" E-mail" required >
+				</div>
+				<div class="email">
+						<i class="fa-regular fa-lock"></i>
+						<input type="password" name="password" class="pass-input" value="" placeholder=" Password" required>
+				</div>
+				<button name="login" type="login" placeholder="login" class="signin-button" onclick="handlel()">Login</button>
+			</div>
+		</form>
+		<div class="linka">
+			Don't have account? <a href="{% url 'sign' %}">SignUp Now</a>
+		</div>
+
+	</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            min-width: 100%;
+            min-height: 100vh;
+
+        }
+        div{
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translatey(-50%);
+            margin-left: 35%;
+            /* text-align: center; */
+        }
+        #conti{
+            padding: 10px 25px;
+            margin-left: 12%;
+            outline: none;
+            border: 0px;
+            font-size: medium;
+            background-color: white;
+            cursor: pointer;
+        }
+        #conti:hover{
+            color:blue;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="{% url 'payd' %}" method="post">
+        {% csrf_token %}
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <div>
+        <lottie-player id="icons" src="https://assets1.lottiefiles.com/packages/lf20_b7jmnbkv.json" mode="bounce"
+        background="transparent" speed="0.8" style="width: 500px; height: 500px;" hover loop  autoplay>
+    </lottie-player>
+        <button name="conti" id="conti" type="submit">Continue....</button>
+    </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,451 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.a {
+  width: 100%;
+  height: 100vh;
+    background-image: url(images/back.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.navbar {
+  width: 100%;
+  height: 30px;
+  margin: auto;
+  padding: 35px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  background-image:radial-gradient(#44343c,#654b43,#8c5c44,#9c846b);
+  /* background-color:#654b43; */
+  background-image: url(images/wb.jpg);
+  font-size: larger;
+  z-index: 1;
+}
+.logo {
+  width: 80px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+.navbar ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 0 30px;
+  position: relative;
+}
+.navbar ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  /* font-family: 'Segoe Print'; */
+  font-weight: 100pt;
+}
+.navbar ul li::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background: rgb(226, 138, 138);
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.add {
+  margin: 0 50px;
+}
+.navbar ul li:hover::after {
+  width: 100%;
+}
+.content {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #fff;
+}
+.content h1 {
+  font-size: 70px;
+  margin-top: 120px;
+}
+.content h4{
+  font-size: larger;
+  color:beige;
+}
+.content p {
+  margin: 20px auto;
+  font-weight: 100;
+  line-height: 25px;
+}
+button {
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid black ;/*#061150 */
+  background: transparent;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  font-size: 20px;
+}
+.span1 {
+  background: black;
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button:hover span {
+  width: 100%;
+}
+
+button:hover {
+  border: none;
+}
+.white-section {
+  background-image: linear-gradient(
+    #FBE3BF, #EDCAA1,#CD9D6F,#F6D7AF,#FEEED5
+  );
+}
+
+#contactus {
+  padding: 8% 15%;
+  text-align: center;
+  margin-top: 30px;
+}k
+.social-icon {
+  margin: 20px 30px;
+  color: black;
+}
+a:link,
+a:visited {
+  color: rgb(113, 149, 194);
+}
+a:hover {
+  color: rgb(103, 39, 223);
+  background-color: transparent;
+  text-decoration: underline;
+}
+.pro:link,.pro:visited{
+  color: #fff;
+  text-decoration: none;
+}
+.pro:hover{
+  background-color: transparent;
+  text-decoration: none;
+  color: #fff;
+}
+
+.aaaa {
+ margin-top: 30px;
+  padding: 10px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    tan,
+    beige,
+    #FDF4E3,
+    #3C3431
+  ),
+  url(https://www.adobe.com/content/dam/cc/us/en/creativecloud/illustration-adobe-illustration/how-to-draw-trees/draw-trees_fb-img_1200x800.jpg);
+background-size: cover;
+background-position: center;
+
+}
+.slider {
+  width: 800px;
+  height: 500px;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.slides {
+  width: 500%;
+  height: 500px;
+  display: flex;
+}
+
+.slides input {
+  display: none;
+}
+
+.slide {
+  width: 20%;
+  transition: 2s;
+}
+
+.slide img {
+  width: 800px;
+  height: 500px;
+}
+
+.navigation-manual {
+  position: absolute;
+  width: 800px;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn {
+  border: 2px solid #40d3dc;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
+}
+
+.manual-btn:hover {
+  background: #40d3dc;
+}
+
+#radio1:checked ~ .first {
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first {
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+  margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+  margin-left: -60%;
+}
+
+.navigation-auto {
+  position: absolute;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  margin-top: 460px;
+}
+
+.navigation-auto div {
+  border: 2px solid #40d3dc;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background: #40d3dc;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background: #3dd3db;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+  background: #40d3dc;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+  background: #40d3dc;
+}
+html {
+  scroll-behavior: smooth;
+}
+.tc{
+  margin-top: 30px;
+  padding: 7% 15%;
+  text-align: center;
+  background-image: linear-gradient(#46493E,#6D775C,#958D6D,#7D6F56);
+
+  text-align: center;
+}
+h1{
+  font-size: 40px;
+  color: #fff;
+}
+.h1{
+  color: #fff;
+}
+.h3{
+ margin-top: 50px;
+ color: #fff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#nameo{
+  color: black;
+  font-family: 'Segoe Script';
+  text-transform: capitalize;
+}
+
+ 
+  h3 {
+  	font-size: 1.3em;
+	  font-weight: 100px;
+	  font-family: Georgia, Times, 'Times New Roman', serif;
+  	letter-spacing: 1.2px;
+  }
+
+  img {
+  			max-width: 100%;
+  			filter: drop-shadow(1px 1px 3px $color-secondary);
+			   border-radius: 5%;
+  		}
+
+  .product {
+  	display: grid;
+  	grid-template-columns: 0.9fr 1fr;
+  	margin: auto;
+  	padding: 2.5em 0;
+  	min-width: 600px;
+    background-image: linear-gradient(
+      rgba(133, 83, 38, 0.421),
+      rgba(68, 54, 38, 0.548)
+    ),
+    url(https://images.financialexpress.com/2020/04/sky660.jpg);
+  background-size: cover;
+  background-position: center;
+margin-top: 30px;
+  }
+
+  .product__photo {
+  	position: relative;
+  }
+
+  .photo-container {
+	  margin-top: 0 px;
+  	position: absolute;
+  	left: -2.5em;
+  	display: grid;
+  	grid-template-rows: 1fr;
+  	width: 500px;
+  	height: 350px;
+  	border-radius: 5%;
+  	box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
+    /* object-fit: contain; */
+    margin-left: 100px;
+  }
+  .photo-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-main {
+  	border-radius: 5%;
+  	background-color: #9be010;
+  	background: radial-gradient(#2e9608, #517a05);
+
+
+  		display: flex;
+  		justify-content: space-between;
+  		padding: 0.8em;
+  		color: white;
+
+  			cursor: pointer;
+  		}
+  	}
+
+  	img {
+  		position: absolute;
+  		left: -3.5em;
+  		top: 2em;
+  		max-width: 110%;
+  		filter: saturate(150%) contrast(120%) hue-rotate(10deg)
+  			drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+  	}
+  }
+
+  .product__info {
+  	padding: 0.8em 2;
+  }
+
+  .price {
+  	margin: 1.5em 0;
+ 
+  	font-size: 1.2em;
+
+  	span {
+  		padding-left: 0.15em;
+  		font-size: 2.9em;
+  	}
+  }
+
+  .variant {
+  	overflow: auto;
+
+  }
+
+  .description {
+  	clear: left;
+  	margin: 2em 0;
+  }
+
+  .buy--btn {
+  	padding: 1.5em 3.1em;
+    margin-left: 0;
+  	border: none;
+  	border-radius: 7px;
+  	font-size: 0.8em;
+  	font-weight: 700;
+  	letter-spacing: 1.3px;
+  	color: white;
+  	background-color: red;
+  	box-shadow: 2px 2px 25px -7px;
+  	cursor: pointer;
+  }
+
+
+  .wrapper{
+    width: 80px;
+    background: #fff;
+    padding: 10px;
+    margin: 10px 0 0 0px;
+    border-radius: 7px;
+
+  }
+  .wrapper .input-data{
+    height: 30px;
+    width: 100%;
+    position: relative;
+  }
+  .wrapper .input-data input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 15px;
+    outline:none;
+  }
+.jq11{
+	display: none;
+}
+  
+  /* .proceedd
+{
+  background-image: linear-gradient(
+    rgba(93, 117, 148, 0.925),
+    rgba(49, 88, 66, 0.75)
+  ),
+  url(https://images.financialexpress.com/2020/04/sky660.jpg);
+background-size: cover;
+background-position: center;
+margin-top: 30px;
+} */

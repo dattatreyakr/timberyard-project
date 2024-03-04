@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lumberyar|)</title>
+    <link rel="stylesheet" href="{% static 'app1/css.css' %}" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="a" id="home">
+        <div class="navbar">
+            <img src="{% static 'app1/images/Wlogo.png' %}" class="logo" />
+            <ul>
+                <li><a href="#">Home </a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contactus">Contact Us</a></li>
+                <li><a href="#t&c">T&C</a></li>
+                {% if request.user.is_staff %}
+                <li><a href="http://127.0.0.1:8000/admin/app1/woods/add/">Vendor</a></li>
+                <li><a href="http://127.0.0.1:8000/admin">Admin</a></li>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                <li> <a href="{% url 'profile' %}"> {{ request.user }} </a>  </li>
+                {% else %}
+                <li><a href="{% url 'log' %}">Login</a>
+                    <h4 id="h" style="color: white;"></h4>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="content">
+            <h1 class="1111">Welcome To Lumber Yar|)</h1><br />
+            <h4 class="1111">
+                Lumber yard is a location where Timber <br />and wood-related products used in construction and/or home
+                improvement projects are processed or stored.
+            </h4>
+            <div>
+                <button type="button">
+                    <a href="#products" class="pro">
+                        <h3 style="font-family: Segoe Print;"><span class="span1"></span>Products</h3>
+                    </a>
+                </button>
+            </div>
+            <marquee style="width:25%; font-size:25px;"> 1 piece is equal to 5 cubic feet </marquee>
+        </div>
+    </div>
+    <div class="aaaa" id="services">
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1" />
+                <input type="radio" name="radio-btn" id="radio2" />
+                <input type="radio" name="radio-btn" id="radio3" />
+                <input type="radio" name="radio-btn" id="radio4" />
+                <div class="slide first">
+                    <img src="{% static 'app1/images/slide1.png' %}" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="{% static 'app1/images/slide2.jpg' %}" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="{% static 'app1/images/slide3.png' %}" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="{% static 'app1/images/Wlogo.png' %}" alt="" />
+                </div>
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+            </div>
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+        </div>
+    </div>
+    <div id="products">
+        <!--        page to be modify-->
+        {% for item in wood %}
+        <form action="{% url 'order' %}" method="post">
+            {% csrf_token %}
+            <section class="product">
+                <div class="product__photo">
+                    <div class="photo-container">
+                        <img src="{{ item.image.url }}" alt="" width="100%" height="100%" />
+                    </div>
+                </div>
+                <div class="product__info">
+                    <div class="title">
+                        <h1 id="nameo"> {{ item.name }} </h1><br>
+                        <input type="hidden" name="names" value="{{ item.name }}">
+
+                        <input type="hidden" name="idofproduct" value="{{ item.id }}">
+                        <!-- <span>COD: 3201</span> -->
+                    </div>
+
+                    <div class="description">
+                        <div class="jq1">
+                            <h3>BENEFITS <i class="fas fa-caret-right" style="cursor: pointer;"></i></h3><br>
+                        </div>
+                        <div class="jq11">
+                            <ul>
+                                {% for data in ben %}
+                                {% if item == data.fkey %}
+                                <li> {{ data.benift }}</li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="price">Price : ₹<span> {{ item.amount }} /piece</span></div>
+                    <input type="hidden" name="price" value="{{ item.amount }}">
+                    <div class="wrapper">
+                        <div class="input-data">
+                            <input type="number" name="quantity" id="teak" min="1" max="999" placeholder="Quantity" required/>
+                        </div>
+                    </div>
+                    <button type="submit" class="buy--btn">Buy Now</button>
+                </div>
+    </div>
+    </section>
+    </form>
+    {% endfor %}
+    </div>
+    <div class="tc" id="t&c">
+        <h1 class="h1">Terms & Conditions</h1>
+        <h3 class="h3">This agreement is between you/entity you represent and Karnataka Forest Dept. <br /> If you are
+            entering into this Agreement on behalf of an entity under given T&C , you represent that you have the legal
+            authority to question over.<br /> Related to the deleveries and loading formats we are not
+            responsible.<br />
+            Payments are done only through the Nationalised Banks. <br />Return of the Products are allowed only within
+            2
+            days.<br />Dealing is limited to Karnataka state.</h3>
+    </div>
+    <footer class="white-section" id="contactus">
+        <div class="container-fluid"></div>
+        <a href="https://www.facebook.com/"><i class="social-icon fab fa-facebook-f fa-2x"></i></a>
+        <a href="https://www.twitter.com/" color="white"><i class="social-icon fab fa-twitter fa-2x"></i></a>
+        <a href="https://www.instagram.com/"><i class="social-icon fab fa-instagram fa-2x"></i></a>
+        <a href="https://www.gmail.com/"><i class="social-icon fas fa-envelope fa-2x"></i></a>
+        <p>© Copyright 2021</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'app1/js1.js' %}"></script>
+</body>
+
+</html>
